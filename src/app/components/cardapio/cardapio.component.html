@@ -103,6 +103,45 @@
     <input type="text" class="form-control" required [(ngModel)]="cliente.mesa" name="mesa" #mesa="ngModel">
     <div class="text-danger" *ngIf="mesa.invalid && mesa.touched">Informe o número da mesa.</div>
   </div>
+  <!-- Tipo de pagamento (só se for entrega) -->
+  <div class="mb-3" *ngIf="cliente.tipoEntrega === 'Entrega'">
+    <label class="form-label">Tipo de pagamento</label>
+    <select class="form-select" [(ngModel)]="cliente.pagamento" name="pagamento" required #pagamento="ngModel">
+      <option value="" disabled selected>Escolha uma forma de pagamento</option>
+      <option value="Crédito">Cartão de Crédito</option>
+      <option value="Débito">Cartão de Débito</option>
+      <option value="PIX">PIX</option>
+      <option value="Dinheiro">Dinheiro</option>
+    </select>
+    <div class="text-danger" *ngIf="pagamento.invalid && pagamento.touched">
+      Selecione a forma de pagamento.
+    </div>
+
+    <!-- Campo de Troco se for Dinheiro -->
+<div class="mb-3" *ngIf="cliente.pagamento === 'Dinheiro'">
+  <label class="form-label">Precisa de troco?</label>
+  <input
+    type="number"
+    class="form-control"
+    [(ngModel)]="cliente.trocoPara"
+    name="trocoPara"
+    min="{{ total }}"
+    placeholder="Informe o valor se precisar de troco"
+    #trocoPara="ngModel"
+  />
+
+  <!-- Validação visual -->
+  <div class="text-danger" *ngIf="cliente.trocoPara && cliente.trocoPara < total">
+    O valor deve ser maior ou igual ao total do pedido (R$ {{ total | number:'1.2-2' }}).
+  </div>
+
+  <!-- Mostrar troco estimado -->
+  <small class="text-muted" *ngIf="cliente.trocoPara && cliente.trocoPara >= total">
+    Troco estimado: R$ {{ cliente.trocoPara - total | number:'1.2-2' }}
+  </small>
+</div>
+
+  </div>
 
   <button type="submit" class="btn btn-success w-100" [disabled]="formulario.invalid">
     📦 Enviar Pedido via WhatsApp
