@@ -7,7 +7,8 @@
   "build": "ng build",
   "watch": "ng build --watch --configuration development",
   "test": "ng test",
-  "deploy": "ng build --base-href /cardapioAngular/ && npx angular-cli-ghpages --dir=dist/cardapio-digital"
+  "deploy": "ng build --base-href /cardapioAngular/ && npx angular-cli-ghpages --dir=dist/cardapio-digital/browser"
+
 },
   "private": true,
   "dependencies": {
