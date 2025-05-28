@@ -26,10 +26,10 @@ export class CardapioComponent {
 
   produtos: Produto[] = [
     { id: 1, nome: 'Hambúrguer Artesanal', preco: 24.90, imagem: 'hamburguer1.jpg', quantidade: 0, categoria: 'Lanche', descricao: 'Pão brioche, hambúrguer 180g, queijo cheddar, alface e molho especial' },
-    { id: 2, nome: 'Pizza Calabresa', preco: 39.90, imagem: 'hamburguer1.jpg', quantidade: 0, categoria: 'Lanche', descricao: 'Calabresa, queijo, cebola e orégano' },
-    { id: 3, nome: 'Pizza Calabresa', preco: 39.90, imagem: 'hamburguer1.jpg', quantidade: 0, categoria: 'Lanche', descricao: 'Calabresa, queijo, cebola e orégano' },
-    { id: 4, nome: 'Suco Natural', preco: 8.50, imagem: 'hamburguer1.jpg', quantidade: 0, categoria: 'Bebida', descricao: 'Suco natural de frutas' },
-    { id: 5, nome: 'Água Mineral', preco: 4.00, imagem: 'hamburguer1.jpg', quantidade: 0, categoria: 'Bebida', descricao: 'Sem gás' }
+    { id: 2, nome: 'Pizza Calabresa', preco: 39.90, imagem: 'pizza.jpg', quantidade: 0, categoria: 'Lanche', descricao: 'Calabresa, queijo, cebola e orégano' },
+    { id: 3, nome: 'Kikão', preco: 10.00, imagem: 'kikao.jpg', quantidade: 0, categoria: 'Lanche', descricao: 'Calabresa, queijo, cebola e orégano' },
+    { id: 4, nome: 'Suco Natural', preco: 8.50, imagem: 'suco.jpg', quantidade: 0, categoria: 'Bebida', descricao: 'Suco natural de frutas' },
+    { id: 5, nome: 'Água Mineral', preco: 4.00, imagem: 'agua.png', quantidade: 0, categoria: 'Bebida', descricao: 'Sem gás' }
   ];
 
   get produtosFiltrados(): Produto[] {
