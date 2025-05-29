@@ -1,1 +1,41 @@
-<p>form-produto works!</p>
+<div class="container mt-4">
+  <h2>{{ produtoId ? 'Editar Produto' : 'Novo Produto' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()" novalidate>
+
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input id="nome" formControlName="nome" type="text" class="form-control"
+             [class.is-invalid]="form.get('nome')?.invalid && form.get('nome')?.touched">
+      <div class="invalid-feedback">O nome é obrigatório.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="preco" class="form-label">Preço</label>
+      <input id="preco" formControlName="preco" type="number" step="0.01" class="form-control"
+             [class.is-invalid]="form.get('preco')?.invalid && form.get('preco')?.touched">
+      <div class="invalid-feedback">Informe um preço válido (mínimo R$ 0,01).</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoria</label>
+      <input id="categoria" formControlName="categoria" type="text" class="form-control"
+             [class.is-invalid]="form.get('categoria')?.invalid && form.get('categoria')?.touched">
+      <div class="invalid-feedback">A categoria é obrigatória.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="imagem" class="form-label">URL da Imagem</label>
+      <input id="imagem" formControlName="imagem" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      {{ produtoId ? 'Atualizar' : 'Salvar' }}
+    </button>
+
+   <button class="btn btn-secondary ms-2" (click)="voltar()" type="button">
+      Cancelar
+  </button>
+
+  </form>
+</div>
